@@ -103,7 +103,7 @@ async def cmd_start(bot: Client, m: Message):
             InlineKeyboardButton("📖 Help", callback_data="help")
         ]])
     )
-    await message.reply_text(text)
+   
 
 # ─────────────────────── /stop ───────────────────────────────────────────────
 @bot.on_message(filters.command("stop"))
