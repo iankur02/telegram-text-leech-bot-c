@@ -1,6 +1,6 @@
 pyrogram==2.0.106
 tgcrypto==1.2.5
-pyromod==0.1.5
+pyromod==2.1.0
 aiohttp==3.9.5
 aiofiles==23.2.1
 requests==2.31.0
