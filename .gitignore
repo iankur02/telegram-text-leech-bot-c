@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+
+# Bot session files
+*.session
+*.session-journal
+bot.session*
+
+# Downloaded files
+*.mp4
+*.mkv
+*.webm
+*.pdf
+*.jpg
+thumb.jpg
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

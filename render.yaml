@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: txt-leech-bot
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: API_ID
+        sync: false
+      - key: API_HASH
+        sync: false
+      - key: BOT_TOKEN
+        sync: false
+      - key: PORT
+        value: "8080"
+      - key: ALLOWED_USERS
+        value: ""
