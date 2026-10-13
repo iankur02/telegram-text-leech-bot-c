@@ -89,20 +89,24 @@ def parse_links(content: str) -> list[tuple[str, str]]:
 
 
 # ─────────────────────── /start ──────────────────────────────────────────────
-@bot.on_message(filters.command("start"))
-async def cmd_start(bot: Client, m: Message):
-    await m.reply_text(
-        f"👋 **Hello {m.from_user.mention}!**\n\n"
-        "I convert course **TXT files** to Telegram videos.\n\n"
-        "**Commands:**\n"
-        "• /upload – Start a new batch\n"
-        "• /stop   – Cancel the current batch\n"
-        "• /help   – Show this message\n\n"
-        "Send /upload and follow the steps.",
-        reply_markup=InlineKeyboardMarkup([[
-            InlineKeyboardButton("📖 Help", callback_data="help")
-        ]])
+async def start_command(client: Client, message: Message):
+    if not is_authorized(message.from_user.id):
+        await message.reply_text("⛔ **Access Denied.**")
+        return
+
+    text = (
+        f"👋 **Hello {message.from_user.first_name}!**\n\n"
+        f"I am your **Text-to-Video Telegram Leech Bot**, optimized for Render.\n\n"
+        f"📁 **How to use:**\n"
+        f"1. Send me any `.txt` file containing video titles and URLs.\n"
+        f"2. Headers and empty lines are automatically skipped.\n"
+        f"3. Send a photo anytime to set a custom video thumbnail.\n\n"
+        f"⚙️ **Commands:**\n"
+        f"• `/thumb` - View/delete current thumbnail\n"
+        f"• `/cancel` or `/stop` - Stop current batch\n"
+        f"• `/stats` - View disk & memory status"
     )
+    await message.reply_text(text)
 
 
 # ─────────────────────── /stop ───────────────────────────────────────────────
